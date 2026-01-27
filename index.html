@@ -3,161 +3,149 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TechZone | Aprende Tecnología Jugando</title>
+  <title>CyberTechZone | Gamificación en Ciberseguridad</title>
 
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+    body{
+      background:radial-gradient(circle at top,#020617,#000000);
+      color:#e5e7eb;
+      overflow-x:hidden;
     }
 
-    body {
-      background: linear-gradient(135deg, #0f172a, #020617);
-      color: #e5e7eb;
-      overflow-x: hidden;
+    header{
+      background:linear-gradient(90deg,#0ea5e9,#22c55e,#6366f1);
+      padding:30px;
+      text-align:center;
+      animation:glow 3s infinite alternate;
     }
 
-    header {
-      background: linear-gradient(90deg, #0ea5e9, #6366f1);
-      padding: 25px;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,.4);
+    @keyframes glow{
+      from{box-shadow:0 0 15px #38bdf8;}
+      to{box-shadow:0 0 35px #22c55e;}
     }
 
-    header h1 {
-      font-size: 2.6rem;
-      font-weight: 800;
-      letter-spacing: 1px;
+    header h1{font-size:2.8rem;font-weight:800;}
+
+    nav{
+      display:flex;
+      justify-content:center;
+      gap:30px;
+      background:#020617;
+      padding:15px;
     }
 
-    header p {
-      opacity: 0.9;
-      margin-top: 8px;
+    nav a{
+      color:#7dd3fc;
+      text-decoration:none;
+      font-weight:600;
+      transition:.3s;
     }
 
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      padding: 15px;
-      background: #020617;
+    nav a:hover{color:#22c55e;transform:scale(1.15);}
+
+    section{padding:70px 10%;}
+
+    .hero{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:40px;
+      align-items:center;
     }
 
-    nav a {
-      color: #93c5fd;
-      text-decoration: none;
-      font-weight: 600;
-      transition: .3s;
+    .hero img{
+      width:100%;
+      border-radius:25px;
+      box-shadow:0 30px 80px rgba(0,0,0,.8);
+      animation:float 4s ease-in-out infinite;
     }
 
-    nav a:hover {
-      color: #38bdf8;
-      transform: scale(1.1);
+    @keyframes float{
+      0%,100%{transform:translateY(0);} 
+      50%{transform:translateY(-15px);} 
     }
 
-    section {
-      padding: 70px 10%;
+    h2{color:#38bdf8;margin-bottom:20px;}
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:30px;
     }
 
-    .hero {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      align-items: center;
-      gap: 40px;
+    .card{
+      background:#020617;
+      border:1px solid #1e293b;
+      border-radius:22px;
+      padding:30px;
+      text-align:center;
+      transition:.4s;
     }
 
-    .hero img {
-      width: 100%;
-      border-radius: 25px;
-      box-shadow: 0 25px 60px rgba(0,0,0,.6);
+    .card:hover{
+      transform:translateY(-12px) scale(1.05);
+      box-shadow:0 0 35px rgba(34,197,94,.6);
     }
 
-    .hero h2 {
-      font-size: 2.2rem;
-      margin-bottom: 20px;
-      color: #7dd3fc;
+    /* JUEGO */
+    .game{
+      background:#020617;
+      border-radius:30px;
+      padding:40px;
+      text-align:center;
+      box-shadow:0 0 60px rgba(0,0,0,.9);
     }
 
-    .hero p {
-      line-height: 1.7;
-      opacity: .9;
+    .stats{
+      display:flex;
+      justify-content:center;
+      gap:40px;
+      flex-wrap:wrap;
+      margin:25px 0;
     }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      margin-top: 50px;
+    .stat{
+      background:#020617;
+      padding:20px 30px;
+      border-radius:20px;
+      border:1px solid #1e293b;
+      min-width:180px;
     }
 
-    .card {
-      background: #020617;
-      border-radius: 20px;
-      padding: 30px;
-      text-align: center;
-      transition: .4s;
-      box-shadow: 0 0 0 rgba(0,0,0,0);
-      border: 1px solid #1e293b;
+    .level{
+      color:#22c55e;
+      font-size:1.4rem;
+      font-weight:700;
     }
 
-    .card:hover {
-      transform: translateY(-12px) scale(1.02);
-      box-shadow: 0 30px 60px rgba(0,0,0,.7);
+    button{
+      margin:10px;
+      padding:15px 35px;
+      border-radius:30px;
+      border:none;
+      font-weight:600;
+      cursor:pointer;
+      background:linear-gradient(90deg,#22c55e,#4ade80);
+      transition:.3s;
     }
 
-    .card h3 {
-      margin-bottom: 15px;
-      color: #38bdf8;
+    button:hover{transform:scale(1.15);}
+
+    .rank{
+      margin-top:30px;
+      font-size:1.2rem;
+      color:#facc15;
     }
 
-    /* Gamificación */
-    .game {
-      background: linear-gradient(145deg, #020617, #020617);
-      border-radius: 25px;
-      padding: 40px;
-      text-align: center;
-      box-shadow: 0 30px 80px rgba(0,0,0,.7);
-    }
-
-    .score {
-      font-size: 1.5rem;
-      margin: 20px 0;
-      color: #22c55e;
-      font-weight: bold;
-    }
-
-    button {
-      background: linear-gradient(90deg, #22c55e, #4ade80);
-      border: none;
-      padding: 15px 35px;
-      border-radius: 30px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: .3s;
-      margin: 10px;
-    }
-
-    button:hover {
-      transform: scale(1.1);
-      background: linear-gradient(90deg, #4ade80, #22c55e);
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      background: #020617;
-      color: #94a3b8;
-      margin-top: 80px;
-    }
-
-    @media(max-width:768px){
-      header h1{font-size:2rem;}
+    footer{
+      background:#020617;
+      padding:25px;
+      text-align:center;
+      color:#94a3b8;
+      margin-top:70px;
     }
   </style>
 </head>
@@ -165,90 +153,99 @@
 <body>
 
 <header>
-  <h1>⚡ TechZone</h1>
-  <p>Explora la tecnología del futuro de forma interactiva</p>
+  <h1>🛡️ CyberTechZone</h1>
+  <p>Entrenamiento interactivo en Ciberseguridad</p>
 </header>
 
 <nav>
   <a href="#inicio">Inicio</a>
-  <a href="#temas">Temas</a>
-  <a href="#juego">Gamificación</a>
-  <a href="#contacto">Contacto</a>
+  <a href="#areas">Áreas</a>
+  <a href="#juego">Entrenamiento</a>
 </nav>
 
 <section id="inicio">
   <div class="hero">
     <div>
-      <h2>La tecnología evoluciona… ¿y tú?</h2>
+      <h2>Simulador de Ciberseguridad</h2>
       <p>
-        Bienvenido a <b>TechZone</b>, una plataforma educativa donde aprenderás
-        sobre informática, ciberseguridad, inteligencia artificial y redes
-        mediante experiencias visuales y dinámicas.
+        Aprende hacking ético, defensa digital y análisis de sistemas
+        mediante un entorno gamificado con niveles, rangos y experiencia.
       </p>
     </div>
-
-    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475" alt="Tecnología" />
+    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" />
   </div>
 </section>
 
-<section id="temas">
-  <h2 style="text-align:center; margin-bottom:20px;">🚀 Áreas Tecnológicas</h2>
-
+<section id="areas">
+  <h2>🔐 Áreas de Entrenamiento</h2>
   <div class="cards">
-    <div class="card">
-      <h3>💻 Programación</h3>
-      <p>HTML, CSS, JavaScript, Python y fundamentos de desarrollo moderno.</p>
-    </div>
-
-    <div class="card">
-      <h3>🔐 Ciberseguridad</h3>
-      <p>Hacking ético, redes, Linux, análisis de vulnerabilidades.</p>
-    </div>
-
-    <div class="card">
-      <h3>🤖 Inteligencia Artificial</h3>
-      <p>Machine Learning, automatización y análisis de datos.</p>
-    </div>
-
-    <div class="card">
-      <h3>☁️ Cloud Computing</h3>
-      <p>Servicios en la nube, virtualización y DevOps.</p>
-    </div>
+    <div class="card">💻 Linux & Terminal</div>
+    <div class="card">🌐 Redes y Protocolos</div>
+    <div class="card">🛡️ Seguridad Ofensiva</div>
+    <div class="card">🧠 Análisis Forense</div>
+    <div class="card">☁️ Cloud Security</div>
+    <div class="card">⚠️ Gestión de Vulnerabilidades</div>
   </div>
 </section>
 
 <section id="juego">
-  <h2 style="text-align:center; margin-bottom:30px;">🎮 Zona Gamificada</h2>
+  <h2>🎮 Centro de Entrenamiento</h2>
 
   <div class="game">
-    <p>Haz clic para ganar experiencia tecnológica</p>
-    <div class="score">Puntos: <span id="points">0</span></div>
 
-    <button onclick="addPoints()">⚡ Programar</button>
-    <button onclick="addPoints()">🔐 Defender Sistema</button>
-    <button onclick="addPoints()">🤖 Entrenar IA</button>
+    <div class="stats">
+      <div class="stat">XP: <span id="xp">0</span></div>
+      <div class="stat">Nivel: <span id="level" class="level">1</span></div>
+      <div class="stat">Rango: <span id="rank" class="rank">Novato</span></div>
+    </div>
+
+    <button onclick="gainXP(20)">💻 Practicar Linux</button>
+    <button onclick="gainXP(30)">🌐 Analizar Red</button>
+    <button onclick="gainXP(40)">🔓 Pentesting</button>
+    <button onclick="gainXP(50)">🛡️ Defender Sistema</button>
+
   </div>
 </section>
 
-<section id="contacto">
-  <h2 style="text-align:center;">📩 Contacto</h2>
-  <p style="text-align:center; margin-top:15px;">
-    Proyecto académico – Ingeniería en Ciberseguridad<br />
-    Desarrollado con GitHub Pages
-  </p>
-</section>
-
 <footer>
-  © 2026 TechZone | Educación Tecnológica Interactiva
+  Proyecto académico – Ingeniería en Ciberseguridad | GitHub Pages
 </footer>
 
 <script>
-  let score = 0;
+  let xp = Number(localStorage.getItem("xp")) || 0;
+  let level = Number(localStorage.getItem("level")) || 1;
 
-  function addPoints() {
-    score += 10;
-    document.getElementById("points").innerText = score;
+  const xpSpan = document.getElementById("xp");
+  const levelSpan = document.getElementById("level");
+  const rankSpan = document.getElementById("rank");
+
+  function updateUI(){
+    xpSpan.innerText = xp;
+    levelSpan.innerText = level;
+    rankSpan.innerText = getRank(level);
   }
+
+  function gainXP(amount){
+    xp += amount;
+    if(xp >= level * 100){
+      xp = 0;
+      level++;
+    }
+    localStorage.setItem("xp",xp);
+    localStorage.setItem("level",level);
+    updateUI();
+  }
+
+  function getRank(lvl){
+    if(lvl < 3) return "Novato";
+    if(lvl < 6) return "Analista Junior";
+    if(lvl < 10) return "Pentester";
+    if(lvl < 15) return "Especialista Blue Team";
+    if(lvl < 20) return "Cyber Warrior";
+    return "Elite Hacker Ético";
+  }
+
+  updateUI();
 </script>
 
 </body>
